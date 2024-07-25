@@ -17,14 +17,24 @@ export const BorderRadius = () => {
   };
 
   return (
-    <div className="grid grid-cols-2 gap-5">
-      <div>
-        <Sliders onChange={handleChange} />
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-start">
+      <Sliders onChange={handleChange} />
+
+      <div className="flex flex-col justify-center items-center">
+        <div
+          className={cn("h-[300px] w-[300px] bg-primary my-5")}
+          style={{
+            ...value?.cssObject,
+          }}
+        />
 
         {value?.cssString && (
-          <Card className="mt-10">
+          <Card className="mt-10 w-full">
             <CardContent>
-              <pre className="border-b">{value?.cssString}</pre>
+              <pre className="border-b hidden lg:block">{value?.cssString}</pre>
+              <code className="border-b block lg:hidden mt-6">
+                {value?.cssString}
+              </code>
 
               <Button
                 className="mt-6"
@@ -36,13 +46,6 @@ export const BorderRadius = () => {
           </Card>
         )}
       </div>
-
-      <div
-        className={cn("h-[500px] w-[500px] bg-primary my-5")}
-        style={{
-          ...value?.cssObject,
-        }}
-      />
     </div>
   );
 };
