@@ -1,13 +1,17 @@
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import './globals.css';
-import { Header } from '@/components/shared/Header';
+import { cn } from "@/lib/utils";
+import type { Metadata } from "next";
+import { Poppins } from "next/font/google";
+import "./globals.css";
+import { Header } from "@/components/shared/Header";
 
-const inter = Inter({ subsets: ['latin'] });
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "500", "600", "700"],
+});
 
 export const metadata: Metadata = {
-  title: 'CSS Utilities',
-  description: 'CSS Utilities by Ghazi',
+  title: "CSS Utility Generator",
+  description: "CSS Utility Generator by Ghazi Khan",
 };
 
 export default function RootLayout({
@@ -16,10 +20,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
-      <body className={inter.className}>
+    <html lang="en" className="dark">
+      <body className={cn(poppins.className)}>
         <Header />
-        <main className='container'>{children}</main>
+        <main className="container min-h-screen bg-slate-50 dark:bg-gray-800 pt-5">
+          {children}
+        </main>
       </body>
     </html>
   );
