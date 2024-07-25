@@ -1,20 +1,20 @@
-import type { Metadata } from 'next';
-import { Poppins } from 'next/font/google';
+import type { Metadata } from "next";
+import { Poppins } from "next/font/google";
 
-import { cn } from '@/lib/utils';
-import { Header } from '@/components/shared/Header';
-import { ThemeProvider } from '@/components/shared/ThemeProvider';
+import { cn } from "@/lib/utils";
+import { Header } from "@/components/shared/Header";
+import { ThemeProvider } from "@/components/shared/ThemeProvider";
 
-import './globals.css';
+import "./globals.css";
 
 const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['300', '500', '600', '700'],
+  subsets: ["latin"],
+  weight: ["300", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  title: 'CSS Utility Generator',
-  description: 'CSS Utility Generator by Ghazi Khan',
+  title: "CSS Utility Generator",
+  description: "CSS Utility Generator by Ghazi Khan",
 };
 
 export default function RootLayout({
@@ -23,16 +23,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
+    <html lang="en">
       <body className={cn(poppins.className)}>
         <ThemeProvider
-          attribute='class'
-          defaultTheme='system'
+          attribute="class"
+          defaultTheme="dark"
           enableSystem
-          disableTransitionOnChange>
+          disableTransitionOnChange
+        >
           <Header />
-          <main className='min-h-screen bg-slate-50 dark:bg-gray-800 pt-5'>
-            <div className='container'>{children}</div>
+          <main className="min-h-screen bg-slate-50 dark:bg-gray-800 pt-10">
+            <div className="container">{children}</div>
           </main>
         </ThemeProvider>
       </body>

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-between p-24">
+    <main className="flex flex-col items-center justify-between py-5">
       <div className="grid grid-cols-1 md:grid-cols-3">
         <Link href="/border-radius">
           <Card className="pt-6 drop-shadow-lg">
@@ -18,7 +18,7 @@ export default function Home() {
                 </p>
                 <Link
                   href="/border-radius"
-                  className="font-light text-xs text-primary"
+                  className="font-light text-xs dark:text-primary"
                 >
                   Open {">"}
                 </Link>
