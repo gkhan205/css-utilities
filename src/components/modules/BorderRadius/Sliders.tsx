@@ -1,11 +1,12 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useState, useEffect } from "react";
 
-import { Slider } from '@/components/ui/slider';
+import { Slider } from "@/components/ui/slider";
 
-import { ReturnTypeCss } from './types';
-import { Label } from '@/components/ui/label';
+import { ReturnTypeCss } from "./types";
+import { Label } from "@/components/ui/label";
 
 type Props = {
   onChange: (css: ReturnTypeCss) => void;
@@ -42,13 +43,13 @@ export const Sliders = ({ onChange }: Props) => {
     const { topLeft, topRight, bottomLeft, bottomRight } = values;
 
     const cssString = `
-    border-radius: ${topLeft}% ${topRight}% ${bottomRight}% ${bottomLeft}%;
-    -webkit-border-radius: ${topLeft}% ${topRight}% ${bottomRight}% ${bottomLeft}%;
-    -moz-border-radius: ${topLeft}% ${topRight}% ${bottomRight}% ${bottomLeft}%;
+border-radius: ${topLeft}% ${topRight}% ${bottomRight}% ${bottomLeft}%;
+-webkit-border-radius: ${topLeft}% ${topRight}% ${bottomRight}% ${bottomLeft}%;
+-moz-border-radius: ${topLeft}% ${topRight}% ${bottomRight}% ${bottomLeft}%;
     `;
 
     const cssObject = {
-      'border-radius': `${topLeft}% ${topRight}% ${bottomRight}% ${bottomLeft}%`,
+      "border-radius": `${topLeft}% ${topRight}% ${bottomRight}% ${bottomLeft}%`,
     };
 
     return {
@@ -58,45 +59,60 @@ export const Sliders = ({ onChange }: Props) => {
   };
 
   return (
-    <div className='grid grid-cols-1 gap-10'>
-      <Label htmlFor='top-left'>Top Left</Label>
+    <Card>
+      <CardContent>
+        <CardHeader className="px-0 border-b">
+          <CardTitle>Settings</CardTitle>
+        </CardHeader>
+        <div className="grid grid-cols-1 gap-10 mt-10">
+          <Label htmlFor="top-left" className="mb-[-20px]">
+            Top Left
+          </Label>
 
-      <Slider
-        id='top-left'
-        max={100}
-        step={1}
-        value={[values.topLeft]}
-        onValueChange={handleChange('topLeft')}
-      />
+          <Slider
+            id="top-left"
+            max={100}
+            step={1}
+            value={[values.topLeft]}
+            onValueChange={handleChange("topLeft")}
+          />
 
-      <Label htmlFor='top-right'>Top Right</Label>
+          <Label htmlFor="top-right" className="mb-[-20px]">
+            Top Right
+          </Label>
 
-      <Slider
-        id='top-right'
-        max={100}
-        step={1}
-        value={[values.topRight]}
-        onValueChange={handleChange('topRight')}
-      />
+          <Slider
+            id="top-right"
+            max={100}
+            step={1}
+            value={[values.topRight]}
+            onValueChange={handleChange("topRight")}
+          />
 
-      <Label htmlFor='bottom-right'>Bottom Right</Label>
+          <Label htmlFor="bottom-right" className="mb-[-20px]">
+            Bottom Right
+          </Label>
 
-      <Slider
-        id='bottom-right'
-        max={100}
-        step={1}
-        value={[values.bottomRight]}
-        onValueChange={handleChange('bottomRight')}
-      />
+          <Slider
+            id="bottom-right"
+            max={100}
+            step={1}
+            value={[values.bottomRight]}
+            onValueChange={handleChange("bottomRight")}
+          />
 
-      <Label htmlFor='bottom-left'>Bottom Left</Label>
-      <Slider
-        id='bottom-left'
-        max={100}
-        step={1}
-        value={[values.bottomLeft]}
-        onValueChange={handleChange('bottomLeft')}
-      />
-    </div>
+          <Label htmlFor="bottom-left" className="mb-[-20px]">
+            Bottom Left
+          </Label>
+          <Slider
+            id="bottom-left"
+            max={100}
+            step={1}
+            value={[values.bottomLeft]}
+            onValueChange={handleChange("bottomLeft")}
+          />
+        </div>
+      </CardContent>
+    </Card>
   );
 };
