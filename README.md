@@ -18,9 +18,8 @@ CSS Utility Generators is a collection of tools designed to generate CSS code fo
 
 ## Features
 
-- **Border Radius Generator:** Generate border-radius values for creating rounded corners. Control each corner individually or uniformly.
-
-[//]: # (- **Box Shadow Generator:** Create custom box shadows with ease. Adjust properties such as offset, blur, spread, and color.)
+- [x] **Border Radius Generator:** Generate border-radius values for creating rounded corners. Control each corner individually or uniformly.
+- [x] **Box Shadow Generator:** Create custom box shadows with ease. Adjust properties such as offset, blur, spread, and color.
 
 ## Tutorials
 
