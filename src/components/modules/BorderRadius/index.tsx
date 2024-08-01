@@ -1,5 +1,6 @@
 "use client";
 
+import { DisplayCode } from "@/components/shared/DisplayCode";
 import { useState } from "react";
 
 import { cn, copyToClipboard } from "@/lib/utils";
@@ -28,23 +29,7 @@ export const BorderRadius = () => {
           }}
         />
 
-        {value?.cssString && (
-          <Card className="mt-10 w-full">
-            <CardContent>
-              <pre className="border-b hidden lg:block">{value?.cssString}</pre>
-              <code className="border-b block lg:hidden mt-6">
-                {value?.cssString}
-              </code>
-
-              <Button
-                className="mt-6"
-                onClick={() => copyToClipboard(value.cssString)}
-              >
-                Copy to clipboard
-              </Button>
-            </CardContent>
-          </Card>
-        )}
+        {value?.cssString && <DisplayCode css={value.cssString} />}
       </div>
     </div>
   );
